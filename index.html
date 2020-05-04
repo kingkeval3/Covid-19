@@ -15,9 +15,9 @@
   padding: 8px;
 }
 
-#myTable tr:nth-child(even){background-color: #f2f2f2;}
-
-#myTable tr:hover {background-color: #ddd;}
+#myTable tr:nth-child(even){background-color: #121212; color: white;}
+#myTable tr{color: #ddd;}
+#myTable tr:hover {background-color: #202020; color: white;}
 
 #myTable th {
   padding-top: 12px;
@@ -42,6 +42,8 @@ span {
 }
 
 #myInput {
+  background-color: #121212;
+  color: #ddd;
   background-image: url('../images/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
@@ -55,7 +57,7 @@ span {
     
     
     </head>
-<body>
+<body style="background-color: #121212;">
 <h1>LIVE COVID DATA DETAILS : <span>INDIA</span></h1>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for states.." title="Type in a name">
@@ -82,7 +84,7 @@ xhttp.onreadystatechange = function() {
         var tr="";
         // console.log(typeof(this.responseText));
        var cts = JSON.parse(this.responseText).statewise;
-for(var i=1;i<=cts.length-1;i++){
+for(var i=0;i<=cts.length-1;i++){
 tr=tr + "<tr><td>" + cts[i].state + "</td><td style='text-align:right'>" + cts[i].confirmed + "</td><td style='text-align:right'>"+ cts[i].active + "</td><td style='text-align:right'>"+ cts[i].recovered + "</td><td style='text-align:right'>" + cts[i].deaths + "</td><td>" + cts[i].lastupdatedtime + "</td></tr>";
 }
 $("tr").after(tr);
